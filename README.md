@@ -27,3 +27,8 @@ library(ally)
 libri(tidyverse, janitor, glue, maxsal/covid19india)
 ```
 
+## Coming soon :movie_camera:
+
+- :robot: Save ad-hoc function as R script
+- :book: `dear_diary`: a family of functions for jotting down quick project updates/ideas
+

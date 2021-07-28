@@ -8,6 +8,7 @@
 }
 
 #' Helper: Check to see if packages are installed
+#' @param x Package name as string
 #' @return Logical. TRUE if the package exists, FALSE it not, indicating need for installation.
 
 .check_package_installed <- function(x) {
@@ -17,6 +18,7 @@
 }
 
 #' Helper: Check to see if packages are loaded
+#' @param x Package name as string
 #' @return Logical. TRUE if the package exists, FALSE it not, indicating need for installation.
 
 .check_library_loaded <- function(x) {
@@ -28,6 +30,7 @@
 #' Check for, install, and load CRAN and GitHub R packages
 #' @param ... A list of unquoted R packages to install/load
 #' @return Checks to see whether packages are already installed or loaded. If not installed, will install. If already loaded, will skip loading. Otherwise, will load libraries and provide a quick summary.
+#' @importFrom utils install.packages
 #' @importFrom cli cli_h1
 #' @importFrom cli cli_alert_info
 #' @importFrom cli cli_alert_success
@@ -64,7 +67,7 @@ libri <- function(...) {
       if (grepl("/", libs[i]) == TRUE) {
         remotes::install_github(libs[i])
       } else {
-        install.packages(libs[i])
+        utils::install.packages(libs[i])
       }
       installed <- installed + 1
 
@@ -92,7 +95,7 @@ libri <- function(...) {
 
     if (.check_library_loaded(tmp_lib) == FALSE) {
 
-      suppressPackageStartupMessages(library(tmp_lib, character.only = T))
+      base::suppressPackageStartupMessages(base::library(tmp_lib, character.only = T))
       newloads     <- newloads + 1
       if (is.null(newload_libs)) {
         newload_libs <- tmp_lib

@@ -6,6 +6,9 @@
 \usage{
 .check_library_loaded(x)
 }
+\arguments{
+\item{x}{Package name as string}
+}
 \value{
 Logical. TRUE if the package exists, FALSE it not, indicating need for installation.
 }

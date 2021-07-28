@@ -51,6 +51,7 @@ new_diary <- function(path = NULL) {
 
 #' Make a diary entry
 #' @param entry The entry you want to make in your diary
+#' @param path File path corresponding to diary. Default is working directory
 #' @return Checks to see whether packages are already installed or loaded. If not installed, will install. If already loaded, will skip loading. Otherwise, will load libraries and provide a quick summary.
 #' @importFrom cli cli_alert_success
 #' @importFrom tibble add_row
@@ -97,6 +98,7 @@ dear_diary <- function(entry, path = NULL) {
 #' @return Read diary entries
 #' @importFrom dplyr filter
 #' @importFrom dplyr arrange
+#' @importFrom dplyr desc
 #' @importFrom cli cli_alert_success
 #' @importFrom tibble add_row
 #' @export

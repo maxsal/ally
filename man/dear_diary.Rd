@@ -8,6 +8,8 @@ dear_diary(entry, path = NULL)
 }
 \arguments{
 \item{entry}{The entry you want to make in your diary}
+
+\item{path}{File path corresponding to diary. Default is working directory}
 }
 \value{
 Checks to see whether packages are already installed or loaded. If not installed, will install. If already loaded, will skip loading. Otherwise, will load libraries and provide a quick summary.
